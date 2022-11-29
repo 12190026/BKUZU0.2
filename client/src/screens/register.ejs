@@ -1,0 +1,68 @@
+
+<div class="container mt-5">
+  
+
+  <div class="row">
+    <div class="col-sm-12">
+      <center>
+      <h1>Register</h1>
+      <div class="col-sm-6">
+      <div class="card">
+        <div class="card-body">
+
+          <!-- Makes POST request to /register route -->
+          <form action="/register" method="POST">
+
+            <% if (typeof errorMessage !== "undefined") { %>
+            <p class="alert alert-danger" role="alert"><%= errorMessage %></p>
+            <% } %>
+            <% if (typeof successMessage !== "undefined") { %>
+            <p class="alert alert-success" role="alert"><%= successMessage %></p>
+            <% } %>
+
+            <div class="form-group">
+              <label for="name">Full Name</label>
+              <input type="text" class="form-control" name="name" value="<%=(typeof inputData!='undefined') ? inputData.name: ''%>">
+              <p style="color: red;"><%= (typeof errors!="undefined" && typeof errors.name!="undefined") ? errors.name.msg: ""%></p>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" class="form-control" name="email" value="<%=(typeof inputData!='undefined') ? inputData.email: ''%>">
+              <p style="color: red;"><%= (typeof errors!="undefined" && typeof errors.email!="undefined") ? errors.email.msg: ""%></p>
+            </div>
+            <div class="form-group">
+              <label for="bios">Bio</label>
+              <input type="text" class="form-control" name="bios">
+              <p style="color: red;"></p>
+            </div>
+
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="number" class="form-control" name="phone" value="<%=(typeof inputData!='undefined') ? inputData.phone: ''%>">
+              <p style="color: red;"><%= (typeof errors!="undefined" && typeof errors.phone!="undefined") ? errors.phone.msg: ""%></p>
+            </div>
+
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" class="form-control" name="password" value="<%=(typeof inputData!='undefined') ? inputData.password: ''%>">
+              <p style="color: red;"><%= (typeof errors!="undefined" && typeof errors.password!="undefined") ? errors.password.msg: ""%></p>
+            </div>
+
+            <div class="form-group">
+              <label for="confirmPassword">Confirm Password</label>
+              <input type="password" class="form-control" name="confirmPassword" value="<%=(typeof inputData!='undefined') ? inputData.confirmPassword: ''%>">
+              <p style="color: red;"><%= (typeof errors!="undefined" && typeof errors.confirmPassword!="undefined") ? errors.confirmPassword.msg: ""%></p>
+            </div>
+            <button type="submit" class="btn btn-dark">Register</button>
+          </form>
+
+        </div>
+      </div>
+      </div>
+      </center>
+    </div>
+
+  </div>
+</div>
+
